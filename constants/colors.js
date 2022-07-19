@@ -5,5 +5,5 @@ export const Colors = {
   extraDarkPlum: '#3b021f',
   yellow: '#ddb52f',
   black: '#000',
-  white: '#fff'
+  white: 'white'
 };

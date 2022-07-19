@@ -1,4 +1,3 @@
-// import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, ImageBackground, View, SafeAreaView } from 'react-native';
 import { StartGameScreen } from './screens/StartGameScreen';
@@ -14,7 +13,7 @@ export default function App() {
 
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
   if (userNumber) {
-    screen = <GameScreen />
+    screen = <GameScreen userNumber={userNumber} />
   }
   return (
     <LinearGradient
