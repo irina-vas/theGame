@@ -14,5 +14,7 @@ const styles = StyleSheet.create({
   container: {
     color: Colors.yellow,
     fontSize: 24,
+    fontFamily: 'EduNSWACTFoundation',
+    letterSpacing: 1.5
   }
 });

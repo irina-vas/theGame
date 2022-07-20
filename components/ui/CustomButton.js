@@ -37,7 +37,10 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: Colors.white,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'EduNSWACTFoundation-bold',
+    fontSize: 18,
+    letterSpacing: 2
   },
   pressed: {
     opacity: 0.75

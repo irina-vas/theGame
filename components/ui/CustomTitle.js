@@ -12,12 +12,13 @@ export const CustomTitle = ({ children }) => {
 
 const styles = StyleSheet.create({
   titleContainer: {
+    fontFamily: 'EduNSWACTFoundation-bold',
     fontSize: 24,
     borderWidth: 2,
-    fontWeight: 'bold',
     borderColor: Colors.white,
     textAlign: 'center',
     padding: 12,
-    color: Colors.white
+    color: Colors.white,
+    letterSpacing: 2
   },
 });
