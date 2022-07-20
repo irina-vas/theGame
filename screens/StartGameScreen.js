@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Alert, useWindowDimensions } from 'react-native';
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Alert,
+  useWindowDimensions,
+  KeyboardAvoidingView,
+  ScrollView
+} from 'react-native';
 import { Card } from '../components/ui/Card';
 import { CustomButton } from '../components/ui/CustomButton';
 import { CustomTitle } from '../components/ui/CustomTitle';
@@ -28,31 +36,38 @@ export const StartGameScreen = ({ onPickNumber }) => {
     onPickNumber(chosenNumber);
   }
   return (
-    <View style={[styles.container, { marginTop }]}>
-      <CustomTitle>Guess my number</CustomTitle>
-        <Card>
-          <InstructionText>Enter a number</InstructionText>
-          <TextInput
-            style={styles.numberInput}
-            maxLength={2}
-            keyboardType="number-pad"
-            value={enteredNumber}
-            onChangeText={numberInputHandler}
-          />
-          <View style={styles.buttonsContainer}>
-            <View style={styles.buttonContainer}>
-              <CustomButton onPress={resetInputHandler}>Reset</CustomButton>
-            </View>
-            <View style={styles.buttonContainer}>
-              <CustomButton onPress={confirmInputHandler}>Confirm</CustomButton>
-            </View>
-          </View>
-        </Card>
-    </View>
+    <ScrollView>
+      <KeyboardAvoidingView style={styles.screen} behavior="position">
+        <View style={[styles.container, { marginTop }]}>
+          <CustomTitle>Guess my number</CustomTitle>
+            <Card>
+              <InstructionText>Enter a number</InstructionText>
+              <TextInput
+                style={styles.numberInput}
+                maxLength={2}
+                keyboardType="number-pad"
+                value={enteredNumber}
+                onChangeText={numberInputHandler}
+              />
+              <View style={styles.buttonsContainer}>
+                <View style={styles.buttonContainer}>
+                  <CustomButton onPress={resetInputHandler}>Reset</CustomButton>
+                </View>
+                <View style={styles.buttonContainer}>
+                  <CustomButton onPress={confirmInputHandler}>Confirm</CustomButton>
+                </View>
+              </View>
+            </Card>
+        </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     //marginTop: deviceHeight < 400 ? 30 : 100,

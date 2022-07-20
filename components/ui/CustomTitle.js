@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, Platform } from 'react-native';
 import { Colors } from '../../constants/colors';
 
 export const CustomTitle = ({ children }) => {
+  console.log('Platform', Platform.OS)
   return (
     <Text style={styles.titleContainer}>
       {children}
@@ -14,7 +15,8 @@ const styles = StyleSheet.create({
   titleContainer: {
     fontFamily: 'EduNSWACTFoundation-bold',
     fontSize: 24,
-    borderWidth: 2,
+    // borderWidth: Platform.OS === 'android' ? 3 : 2,
+    borderWidth: Platform.select({ ios: 1, android: 2 }),
     borderColor: Colors.white,
     textAlign: 'center',
     padding: 12,
@@ -22,5 +24,6 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     maxWidth: '80%',
     width: 300,
+    alignSelf: 'center'
   },
 });
