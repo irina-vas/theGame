@@ -27,11 +27,11 @@ export const GameScreen = ({ userNumber, onGameOver }) => {
 
   useEffect(() => {
     if (currentGuess === userNumber) {
-      onGameOver();
+      onGameOver(guessRounds.length);
     }
   }, [currentGuess, userNumber, onGameOver])
 
-  useEffect(() => {
+   useEffect(() => {
     minBoundary = 1;
     maxBoundary = 100;
   }, [])
@@ -87,7 +87,7 @@ export const GameScreen = ({ userNumber, onGameOver }) => {
           </View>
         </View>
       </Card>
-      <View>
+      <View style={styles.guessRounds}>
         <FlatList
           data={guessRounds}
           alwaysBounceVertical={false}
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    marginTop: 40,
+    alignItems: 'center',
   },
   buttonsContainer: {
     flexDirection: 'row'
@@ -118,6 +118,10 @@ const styles = StyleSheet.create({
   },
   instructionText: {
     marginBottom: 12,
+  },
+  guessRounds: {
+    flex: 1,
+    padding: 16
   }
 });
   
